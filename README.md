@@ -1,2 +1,3 @@
-# js-projects-currency-converter
+hello world
 Week 1
+let array = 05
