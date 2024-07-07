@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forex Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Forex Converter</h1>
+
+    <h2>Add a New Exchange Rate</h2>
+    <form id="add-rate-form">
+        <label for="fromCurrency">From Currency:</label>
+        <input type="text" id="fromCurrency" required>
+        <label for="toCurrency">To Currency:</label>
+        <input type="text" id="toCurrency" required>
+        <label for="rate">Exchange Rate:</label>
+        <input type="number" id="rate" step="0.0001" required>
+        <button type="submit">Add Rate</button>
+    </form>
+
+    <h2>Currency Conversion</h2>
+    <form id="convert-currency-form">
+        <label for="convert-amount">Amount:</label>
+        <input type="number" id="convert-amount" required>
+        <label for="sourceCurrency">Source Currency:</label>
+        <input type="text" id="sourceCurrency" required>
+        <label for="destinationCurrency">Destination Currency:</label>
+        <input type="text" id="destinationCurrency" required>
+        <button type="submit">Convert</button>
+    </form>
+
+    <h2>Update Exchange Rate</h2>
+    <form id="update-rate-form">
+        <label for="updateFromCurrency">From Currency:</label>
+        <input type="text" id="updateFromCurrency" required>
+        <label for="updateToCurrency">To Currency:</label>
+        <input type="text" id="updateToCurrency" required>
+        <label for="newRate">New Exchange Rate:</label>
+        <input type="number" id="newRate" step="0.0001" required>
+        <button type="submit">Update Rate</button>
+    </form>
+
+    <div id="currentRates"></div>
+    <div id="result"></div>
+
+    <script src="forex.js"></script>
+</body>
+</html>
