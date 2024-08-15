@@ -1,0 +1,17 @@
+#announcement {
+    display: none;
+    padding: 20px;
+    background-color: yellow;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#currency-banner {
+    display: none;
+    padding: 20px;
+    background-color: lightblue;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
