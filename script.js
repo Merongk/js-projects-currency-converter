@@ -24,4 +24,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Currency watcher
     function getCurrencyRate(callback) {
-        // Sim
+        const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+        const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
+
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const rate = data.conversion_rates.EUR; // Example for EUR rate
+                callback(rate);
+            })
+            .catch(error => {
+                console.error('Error fetching currency rate:', error);
+                callback(null);
+            });
+    }
+
+    function updateCurrencyBanner(rate) {
+        if (rate) {
+            currencyBannerElement.textContent = `1 USD = ${rate.toFixed(2)} EUR`;
+            currencyBannerElement.style.display = 'block';
+        } else {
+            currencyBannerElement.textContent = 'Error fetching currency rate';
+            currencyBannerElement.style.display = 'block';
+        }
+    }
+
+    function scheduleCurrencyUpdates() {
+        getCurrencyRate(rate => updateCurrencyBanner(rate));
+        setInterval(() => {
+            getCurrencyRate(rate => updateCurrencyBanner(rate));
+        }, 60000); // Update every 60 seconds
+    }
+
+    scheduleCurrencyUpdates();
+});
